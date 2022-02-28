@@ -35,11 +35,7 @@ const showPhone = (phones) => {
             <div class="card-body">
               <h4 class="card-title">${phone.phone_name}</h4>
               <h5 class="card-title">${phone.brand}</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-              </p>
-              <a href="#" onclick="detailsBtn('${phone.slug}')" class="btn btn-primary">Details</a>
+              <a href="#" onclick="detailsBtn('${phone.slug}')" class="btn btn-secondary mt-3">Details</a>
             </div>
           </div>
           `;
@@ -59,20 +55,35 @@ const detailsBtn = (id) => {
 const phoneDetails = (phone) => {
   console.log(phone);
   const phnDetails = document.getElementById("phone-details");
+
   phnDetails.innerHTML = `
-          <div class="card mb-5 mt-5" style="width: 25rem">
-            <img src="${phone.image}" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h4 class="card-title">${phone.name}</h4>
-              <h5 class="card-title">${phone.brand}</h5>
-              <h6 class="card-title">${(phone.releaseDate = phone.releaseDate
-                ? phone.releaseDate
-                : "No release date found")}</h6>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-              </p>
+  <div class="card mb-5 mt-5 h-100" style="width: 30rem;">
+  <img src="${phone.image}" class="card-img-top" alt="..." />
+  <div class="card-body">
+              <h4 class="card-title text-center">${phone.name}</h4>
+              <h5 class="card-title text-center">${phone.brand}</h5>
+              <ul id="ul" class="list-group list-group-flush ">
+                    <li class="list-group-item fw-bold text-center">${(phone.releaseDate =
+                      phone.releaseDate
+                        ? phone.releaseDate
+                        : "No release date found")}</li>
+                    <li class="list-group-item"><span class="bold">Sensors: </span> ${phone.mainFeatures.sensors.join(
+                      ", "
+                    )}.</li>
+                    
+                  </ul>
             </div>
           </div>
           `;
+  const ul = document.getElementById("ul");
+  for (const key in phone.others) {
+    const li = document.createElement("li");
+    li.classList.add("list-group-item");
+    li.innerHTML = ` 
+                <span class="bold">  ${phone.others ? key : ""}: </span>${
+      phone.others[key]
+    }
+            `;
+    ul.appendChild(li);
+  }
 };
