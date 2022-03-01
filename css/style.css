@@ -4,3 +4,6 @@
 .bold {
   font-weight: 700;
 }
+#remove-dot {
+  list-style: none;
+}
