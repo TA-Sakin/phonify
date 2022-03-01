@@ -16,9 +16,11 @@
   <body>
     <section class="container">
       <div>
-        <h1 class="text-center mt-5">Phonify</h1>
+        <h1 class="text-center color mt-5">Phonify</h1>
       </div>
-      <div class="input-group mx-auto text-center mt-5 mb-3 w-50">
+
+      <!----------------- search box---------------->
+      <div class="input-group text-center mx-auto mt-5 mb-3 w-75">
         <input
           type="text"
           id="search-box"
@@ -34,10 +36,14 @@
           Search
         </button>
       </div>
+      <!----------------- error message ---------------->
       <div id="error-msg" class="text-center text-danger">
         <h6>No phone found using that name, please try another one.</h6>
       </div>
+      <!-----------------phone details---------------->
       <div id="phone-details" class="d-flex justify-content-center"></div>
+
+      <!----------------- searched phones ---------------->
       <div id="phone-container" class="row mx-auto"></div>
     </section>
     <script src="js/script.js"></script>

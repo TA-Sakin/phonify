@@ -1,6 +1,9 @@
 #error-msg {
   display: none;
 }
+.color {
+  color: #6a56a3;
+}
 .bold {
   font-weight: 700;
 }

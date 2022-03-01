@@ -18,6 +18,8 @@ const searchBtn = () => {
     document.getElementById("phone-container").innerHTML = "";
     document.getElementById("phone-details").innerHTML = "";
   } else {
+    document.getElementById("phone-container").innerHTML = "";
+    document.getElementById("phone-details").innerHTML = "";
     document.getElementById("error-msg").style.display = "block";
   }
 };
