@@ -2,6 +2,7 @@
 //-----------------------------------------------
 const searchBtn = () => {
   const searchText = document.getElementById("search-box").value;
+  document.getElementById("spinner").style.display = "block";
   if (searchText !== "") {
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
@@ -9,9 +10,11 @@ const searchBtn = () => {
       .then((data) => {
         if (data.data.length === 0) {
           document.getElementById("error-msg").style.display = "block";
+          document.getElementById("spinner").style.display = "none";
         } else {
           showPhone(data.data);
           document.getElementById("error-msg").style.display = "none";
+          document.getElementById("spinner").style.display = "none";
         }
       });
     document.getElementById("search-box").value = "";
@@ -21,6 +24,7 @@ const searchBtn = () => {
     document.getElementById("phone-container").innerHTML = "";
     document.getElementById("phone-details").innerHTML = "";
     document.getElementById("error-msg").style.display = "block";
+    document.getElementById("spinner").style.display = "none";
   }
 };
 
