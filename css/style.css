@@ -10,6 +10,9 @@
 .bold {
   font-weight: 700;
 }
-#remove-dot {
+.remove-dot {
   list-style: none;
+}
+#detail-img {
+  height: 300px;
 }
